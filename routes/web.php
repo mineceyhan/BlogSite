@@ -26,7 +26,6 @@ Route::middleware(['throttle:global'])->group(function () {
 
 // Front Routes
 Route::resource('/blog', HomepageController::class);
-Route::get('/random', [HomepageController::class , 'randomBlog']);
 Route::get('category/{id}', [CategoryController::class, 'index']);
 
 //Auth Routes
