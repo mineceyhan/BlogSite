@@ -56,15 +56,7 @@ class HomepageController extends Controller
         $blogs = Blog::with('categories', 'users')->where('id',$id)->get();
         return view('front.blog', compact( 'categories' , 'blogs'));
     }
-    public function randomBlog()
-    {
-        $categories = Category::all();
-        $blogs = Blog::with('categories', 'users')
-        ->inRandomOrder()
-        ->first()->toArray();
-    
-        return view('front.blog', compact( 'categories' , 'blogs'));
-    }
+  
 
     /**
      * Show the form for editing the specified resource.
