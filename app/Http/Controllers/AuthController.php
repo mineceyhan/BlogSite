@@ -60,28 +60,16 @@ class AuthController extends Controller
         $request->session()->put('name' ,  $user->name);
         $request->session()->put('surname' , $user->surname);
         $request->session()->put('id' ,  $user->id);
-        return redirect('panel');
-    }
-
-    public function logout(Request $request)
-    {
-        $check = session('id');
-
-        if ($check != NULL) {
-            $check = auth('sanctum')->user()->tokens()->delete();
-            if ($check) {
-                return [
-                    'message' => 'Çıkış yapıldı.'
-                ];
-            } else {
-                return [
-                    'message' => 'Çıkış sırasında bir hata oluştu.'
-                ];
-            }
-        } else {
-            return [
-                'message' => 'Geçersiz kimlik.'
-            ];
+        
+               if (Auth::attempt($fields)) {
+            $request->session()->regenerate();
+            return redirect()->intended('panel');
         }
+ 
+        return response([
+            'message' =>back()->withErrors([
+                'email' => 'The provided credentials do not match our records.',
+            ])->onlyInput('email')
+        ], 401); 
     }
 }
