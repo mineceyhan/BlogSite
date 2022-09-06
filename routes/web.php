@@ -33,6 +33,8 @@ Route::get('category/{id}', [CategoryController::class, 'index']);
 Route::get('/logout' , function(){
     if( session()->has('id')){
         session()->pull('id');
+           session()->invalidate();
+        session()->regenerateToken();
     }
     return redirect('loginPage');
 });
