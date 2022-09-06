@@ -65,6 +65,14 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 
 
+
+
+
+
+
+
+
+
 SQL dosyasını ekledikten sonra bir çok blogu olan bir kullanıcıya giriş yapmak isterseniz:  email : ceyhanmine695@gmail.com        password: 12345678  
 Kategorileri ana ve alt kategori olacak şekilde bir çok kategori olabilecek şekilde ayarladım. 
 Sadece adminler giriş yapacağı için yetkilendirme sistemi(spatie - roles ) kullanmadım.
