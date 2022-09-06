@@ -21,7 +21,7 @@ class BlogSeeder extends Seeder
                 'title' => fake()->sentence(6),
                 'photo_link' =>  "https://upload.wikimedia.org/wikipedia/commons/6/62/Sunrise_at_Lake_Bled.jpg",
                 'content' => fake()->paragraph(30),
-                'user_id' =>session('id'),
+                'user_id' =>3,
                 'category_id' => rand(1,7),
                 'created_at' => fake()->dateTime(now()),
                 'updated_at' => now(),
